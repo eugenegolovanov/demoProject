@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,26 +18,103 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NZ-Qw-9Tx">
-                                <rect key="frame" x="279" y="289" width="42" height="21"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dTF-wp-a7d" customClass="HartSpinnerView" customModule="demoProject" customModuleProvider="target">
+                                <rect key="frame" x="231" y="236" width="138" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="Upq-MB-9VG"/>
-                                    <constraint firstAttribute="height" constant="21" id="Vda-Wi-RL2"/>
+                                    <constraint firstAttribute="height" constant="128" id="GiQ-yn-JWG"/>
+                                    <constraint firstAttribute="width" constant="138" id="y2F-lc-E3e"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="animating" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hartBeat" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccZ-X9-F82">
+                                <rect key="frame" x="20" y="538" width="127" height="42"/>
+                                <color key="backgroundColor" red="0.29019609089999998" green="0.58431375029999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="127" id="dkt-hZ-fq6"/>
+                                    <constraint firstAttribute="height" constant="42" id="zFI-iQ-rtp"/>
+                                </constraints>
+                                <state key="normal" title="start animation">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4a5-8F-Vd1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ecp-Vi-tN9">
+                                <rect key="frame" x="443" y="540.5" width="137" height="39.5"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39.5" id="JRA-mA-b9u"/>
+                                    <constraint firstAttribute="width" constant="137" id="jEl-fl-dDW"/>
+                                </constraints>
+                                <state key="normal" title="stop animation">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopAnimAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mbc-c2-Wc8"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MTm-kb-5Ao">
+                                <rect key="frame" x="276" y="561" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="FM8-G0-whv"/>
+                                    <constraint firstAttribute="height" constant="31" id="lpa-Tt-f75"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="beatSwitched:" destination="BYZ-38-t0r" eventType="valueChanged" id="PbK-YH-pKO"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="beating switch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBZ-sc-k0g">
+                                <rect key="frame" x="267" y="532" width="66" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="e7I-j1-nKO"/>
+                                    <constraint firstAttribute="width" constant="66" id="odI-ri-lsm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
+                                <color key="textColor" red="0.59607843140000005" green="0.6588235294" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="spinner test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NZ-Qw-9Tx">
+                                <rect key="frame" x="203" y="20" width="195" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="ESh-KW-rRk"/>
+                                    <constraint firstAttribute="width" constant="195" id="ews-H5-DSh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2NZ-Qw-9Tx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZRd-2E-nAa"/>
-                            <constraint firstItem="2NZ-Qw-9Tx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mRf-B7-bzA"/>
+                            <constraint firstItem="MTm-kb-5Ao" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2df-mG-8xB"/>
+                            <constraint firstItem="Ecp-Vi-tN9" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="5hd-eZ-wCA"/>
+                            <constraint firstItem="2NZ-Qw-9Tx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9nd-lZ-sHY"/>
+                            <constraint firstItem="jBZ-sc-k0g" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CVL-9l-022"/>
+                            <constraint firstItem="dTF-wp-a7d" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ovb-A6-gXh"/>
+                            <constraint firstItem="2NZ-Qw-9Tx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="WXt-BZ-A3y"/>
+                            <constraint firstItem="ccZ-X9-F82" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bCN-d9-8ev"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MTm-kb-5Ao" secondAttribute="bottom" constant="8" id="dVC-nV-rIv"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ecp-Vi-tN9" secondAttribute="bottom" constant="20" id="ddG-LA-blJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ccZ-X9-F82" secondAttribute="bottom" constant="20" id="eeE-sP-Mdh"/>
+                            <constraint firstItem="dTF-wp-a7d" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gdW-Nh-aZ3"/>
+                            <constraint firstItem="MTm-kb-5Ao" firstAttribute="top" secondItem="jBZ-sc-k0g" secondAttribute="bottom" constant="8" id="u6D-A7-vrb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="hartView" destination="dTF-wp-a7d" id="nkT-2I-gXf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="303" y="389"/>
         </scene>
     </scenes>
 </document>
