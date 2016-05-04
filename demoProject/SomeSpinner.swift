@@ -1,27 +1,21 @@
 //
-//  HartSpinner.swift
-//  hartLoader
+//  SomeSpinner.swift
+//  demoProject
 //
-//  Created by eugene golovanov on 5/2/16.
-//  Copyright © 2016 EG. All rights reserved.
+//  Created by eugene golovanov on 5/3/16.
+//  Copyright © 2016 eugene golovanov. All rights reserved.
 //
 
 import UIKit
 
 
 @IBDesignable
-class HartSpinnerView: UIView {
+class SomeSpinner: UIView {
     
     //------------------------------------------------------------------------------
     //MARK: - Properties
     
     
-    var shadowLayer: CAShapeLayer!
-    
-    //// Color Declarations
-    private let hartBlu = UIColor(red: 0.231, green: 0.741, blue: 0.792, alpha: 1.000)
-    private let hartBlueberry = UIColor(red: 0.290, green: 0.584, blue: 1.000, alpha: 1.000)
-
     
     private let hartLayer = CAShapeLayer()
     private let backgroundHartLayer = CAShapeLayer()
@@ -36,20 +30,6 @@ class HartSpinnerView: UIView {
         }
     }
     
-    @IBInspectable var strokeColor: UIColor = UIColor.yellowColor() {
-        didSet {
-            hartLayer.strokeColor = strokeColor.CGColor
-        }
-    }
-    
-    @IBInspectable var fillColor: UIColor = UIColor.greenColor() {
-        didSet {
-            hartLayer.fillColor = fillColor.CGColor
-        }
-    }
-
-
-    
     @IBInspectable var animating: Bool = true {
         didSet {
             updateAnimation()
@@ -62,52 +42,21 @@ class HartSpinnerView: UIView {
         }
     }
     
-
-    //Shadow
-    @IBInspectable var shadowColor: UIColor = UIColor.blackColor() {
-        didSet {
-            layer.shadowColor = shadowColor.CGColor
-        }
-    }
+    let duration:CFTimeInterval = 1.5
     
-    @IBInspectable var shadowRadius: CGFloat = 0 {
-        didSet {
-            layer.shadowRadius = shadowRadius
-        }
-    }
-
-    @IBInspectable var shadowOpacity: Float = 0 {
-        didSet {
-            layer.shadowOpacity = shadowOpacity
-        }
-    }
-    
-    @IBInspectable var shadowOffset: CGSize = CGSize.zero {
-        didSet {
-            layer.shadowOffset = shadowOffset
-        }
-    }
-    
-    @IBInspectable var shadowLayerMargin: CGFloat = 10 {
-        didSet {
-            self.updateShadowLayer(shadowLayerMargin)
-        }
-    }
-
-
     
     //MARK: Animation Properties
     
     private let strokeEndAnimation: CAAnimation = {
-//        let animation = CABasicAnimation(keyPath: "strokeEnd")
-//        animation.fromValue = 0
-//        animation.toValue = 1
-//        animation.duration = 1
-//        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-
+        //        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        //        animation.fromValue = 0
+        //        animation.toValue = 1
+        //        animation.duration = 1
+        //        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        
         let duration = 2.5
         let loopDuration = duration * 0.75
-
+        
         let animation = CAKeyframeAnimation(keyPath: "strokeEnd")
         animation.values = [0.0, 0.5, 1.0]
         animation.keyTimes = [0.0, 0.5, 1.0]
@@ -123,12 +72,12 @@ class HartSpinnerView: UIView {
     }()
     
     private let strokeStartAnimation: CAAnimation = {
-//        let animation = CABasicAnimation(keyPath: "strokeStart")
-//        animation.beginTime = 0.5
-//        animation.fromValue = 0
-//        animation.toValue = 1
-//        animation.duration = 1
-//        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        //        let animation = CABasicAnimation(keyPath: "strokeStart")
+        //        animation.beginTime = 0.5
+        //        animation.fromValue = 0
+        //        animation.toValue = 1
+        //        animation.duration = 1
+        //        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
         let duration = 2.5
         let loopDuration = duration * 0.75
@@ -139,7 +88,7 @@ class HartSpinnerView: UIView {
         animation.keyTimes = [0.0, 0.5, 0.9, 1.0]
         animation.duration = loopDuration
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-
+        
         
         let group = CAAnimationGroup()
         group.duration = duration
@@ -148,7 +97,7 @@ class HartSpinnerView: UIView {
         
         return group
     }()
-
+    
     
     
     
@@ -161,12 +110,12 @@ class HartSpinnerView: UIView {
         scaleAnimate.fromValue = 1
         scaleAnimate.toValue = 0.95
         scaleAnimate.duration = 1.1
-//        scaleAnimate.delegate = self
+        //        scaleAnimate.delegate = self
         scaleAnimate.repeatCount = Float.infinity
         scaleAnimate.removedOnCompletion = true
         scaleAnimate.setValue("scaleAnim", forKey: "name")
         scaleAnimate.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-
+        
         let group = CAAnimationGroup()
         group.duration = 1.5
         group.repeatCount = MAXFLOAT
@@ -174,17 +123,17 @@ class HartSpinnerView: UIView {
         
         return group
     }()
-
     
     
-
+    
+    
     
     
     
     
     //------------------------------------------------------------------------------
     //MARK: - init Methods
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -196,41 +145,39 @@ class HartSpinnerView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        //Corner Radius
-//        self.layer.cornerRadius = CGRectGetHeight(self.bounds) / 2.0
-//        self.layer.masksToBounds = true
-
         setup()
     }
-
+    
     
     func setup() {
         hartLayer.lineWidth = lineWidth
-//        self.hartLayer.strokeColor = hartBlueberry.CGColor
-//        self.hartLayer.fillColor = UIColor.clearColor().CGColor
-        
-        self.hartLayer.strokeColor = self.strokeColor.CGColor
-        self.hartLayer.fillColor = self.fillColor.CGColor
-
+//        self.hartLayer.strokeColor = UIColor.redColor().CGColor
+//        self.hartLayer.fillColor = UIColor.blueColor().CGColor
         layer.addSublayer(hartLayer)
-//        tintColorDidChange()
+        tintColorDidChange()
     }
-    
-    
     
     
     func drawCanvas(frame frame: CGRect, scale: CGFloat) {
         
-
-        //// Hart Drawing
-        let hartPath = UIBezierPath()
+        
+//        //// General Declarations
+//        let context = UIGraphicsGetCurrentContext()
+//        
+//        //// hartPath Drawing
+//        CGContextSaveGState(context)
+//        CGContextTranslateCTM(context, frame.minX + 0, frame.minY + 0)
+//        CGContextScaleCTM(context, 0.5, 0.5)
+//        
+//        //// Hart Drawing
+//        let hartPath = UIBezierPath()
 //        hartPath.moveToPoint(CGPointMake(scale * (frame.minX + 29.14), scale * (frame.minY + 30.08)))
 //        hartPath.addCurveToPoint(CGPointMake(scale * (frame.minX + 29.14), scale * (frame.minY + 30.08)), controlPoint1: CGPointMake(scale * (frame.minX + 27.79), scale * (frame.minY + 31.22)), controlPoint2: CGPointMake(scale * (frame.minX + 28.45), scale * (frame.minY + 30.63)))
-//
+//        
 //        hartPath.addLineToPoint(CGPointMake(scale * (frame.minX + 29.49), scale * (frame.minY + 29.81)))
-//
+//        
 //        hartPath.addCurveToPoint(CGPointMake(scale * (frame.minX + 68.86), scale * (frame.minY + 31.85)), controlPoint1: CGPointMake(scale * (frame.minX + 41.07), scale * (frame.minY + 20.77)), controlPoint2: CGPointMake(scale * (frame.minX + 58.09), scale * (frame.minY + 21.44)))
-//
+//        
 //        hartPath.addCurveToPoint(CGPointMake(scale * (frame.minX + 70.5), scale * (frame.minY + 33.57)), controlPoint1: CGPointMake(scale * (frame.minX + 69.44), scale * (frame.minY + 32.4)), controlPoint2: CGPointMake(scale * (frame.minX + 69.98), scale * (frame.minY + 32.98)))
 //        
 //        hartPath.addCurveToPoint(CGPointMake(scale * (frame.minX + 72.14), scale * (frame.minY + 31.85)), controlPoint1: CGPointMake(scale * (frame.minX + 71.02), scale * (frame.minY + 32.98)), controlPoint2: CGPointMake(scale * (frame.minX + 71.56), scale * (frame.minY + 32.4)))
@@ -243,60 +190,60 @@ class HartSpinnerView: UIView {
 //        hartPath.addCurveToPoint(CGPointMake(scale * (frame.minX + 27.5), scale * (frame.minY + 72.5)), controlPoint1: CGPointMake(scale * (frame.minX + 52.07), scale * (frame.minY + 102)), controlPoint2: CGPointMake(scale * (frame.minX + 27.68), scale * (frame.minY + 72.72)))
 //        hartPath.addCurveToPoint(CGPointMake(scale * (frame.minX + 27.14), scale * (frame.minY + 72.15)), controlPoint1: CGPointMake(scale * (frame.minX + 27.38), scale * (frame.minY + 72.38)), controlPoint2: CGPointMake(scale * (frame.minX + 27.26), scale * (frame.minY + 72.27)))
 //        hartPath.addCurveToPoint(CGPointMake(scale * (frame.minX + 27.14), scale * (frame.minY + 31.85)), controlPoint1: CGPointMake(scale * (frame.minX + 15.62), scale * (frame.minY + 61.02)), controlPoint2: CGPointMake(scale * (frame.minX + 15.62), scale * (frame.minY + 42.98)))
-        hartPath.moveToPoint(CGPointMake(frame.minX + 68.49, frame.minY + 69.81))
-        hartPath.addLineToPoint(CGPointMake(frame.minX + 68.49, frame.minY + 69.81))
-
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 107.86, frame.minY + 71.85), controlPoint1: CGPointMake(frame.minX + 80.07, frame.minY + 60.77), controlPoint2: CGPointMake(frame.minX + 97.09, frame.minY + 61.44))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 109.5, frame.minY + 73.57), controlPoint1: CGPointMake(frame.minX + 108.44, frame.minY + 72.4), controlPoint2: CGPointMake(frame.minX + 108.98, frame.minY + 72.98))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 111.14, frame.minY + 71.85), controlPoint1: CGPointMake(frame.minX + 110.02, frame.minY + 72.98), controlPoint2: CGPointMake(frame.minX + 110.56, frame.minY + 72.4))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 124.94, frame.minY + 64.32), controlPoint1: CGPointMake(frame.minX + 115.09, frame.minY + 68.03), controlPoint2: CGPointMake(frame.minX + 119.89, frame.minY + 65.52))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 152.86, frame.minY + 71.85), controlPoint1: CGPointMake(frame.minX + 134.63, frame.minY + 62.03), controlPoint2: CGPointMake(frame.minX + 145.29, frame.minY + 64.54))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 152.86, frame.minY + 112.15), controlPoint1: CGPointMake(frame.minX + 164.38, frame.minY + 82.98), controlPoint2: CGPointMake(frame.minX + 164.38, frame.minY + 101.02))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 152.49, frame.minY + 112.5), controlPoint1: CGPointMake(frame.minX + 152.74, frame.minY + 112.27), controlPoint2: CGPointMake(frame.minX + 152.62, frame.minY + 112.39))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 109, frame.minY + 142), controlPoint1: CGPointMake(frame.minX + 152.5, frame.minY + 112.5), controlPoint2: CGPointMake(frame.minX + 127, frame.minY + 142))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 66.5, frame.minY + 112.5), controlPoint1: CGPointMake(frame.minX + 91.07, frame.minY + 142), controlPoint2: CGPointMake(frame.minX + 66.68, frame.minY + 112.72))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 66.14, frame.minY + 112.15), controlPoint1: CGPointMake(frame.minX + 66.38, frame.minY + 112.38), controlPoint2: CGPointMake(frame.minX + 66.26, frame.minY + 112.27))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 66.14, frame.minY + 71.85), controlPoint1: CGPointMake(frame.minX + 54.62, frame.minY + 101.02), controlPoint2: CGPointMake(frame.minX + 54.62, frame.minY + 82.98))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 68.14, frame.minY + 70.08), controlPoint1: CGPointMake(frame.minX + 66.79, frame.minY + 71.22), controlPoint2: CGPointMake(frame.minX + 67.45, frame.minY + 70.63))
-
-        hartPath.closePath()
-        hartBlu.setFill()
-        hartPath.fill()
+//        hartPath.closePath()
+//        hartBlu.setFill()
+//        hartPath.fill()
+//        
+//        CGContextRestoreGState(context)
         
         
         
-        let center = CGPoint(x: 0, y: 0)
-
-
+        
+        //// Bezier Drawing
+        var bezierPath = UIBezierPath()
+        bezierPath.moveToPoint(CGPointMake(frame.minX + 39.5, frame.minY + 39.5))
+        bezierPath.addLineToPoint(CGPointMake(frame.minX + 21.5, frame.minY + 70.5))
+        bezierPath.addLineToPoint(CGPointMake(frame.minX + 44.5, frame.minY + 93.5))
+        bezierPath.addLineToPoint(CGPointMake(frame.minX + 100.5, frame.minY + 93.5))
+        bezierPath.addLineToPoint(CGPointMake(frame.minX + 117.5, frame.minY + 62.5))
+        bezierPath.addLineToPoint(CGPointMake(frame.minX + 90.5, frame.minY + 33.5))
+        bezierPath.addLineToPoint(CGPointMake(frame.minX + 58.5, frame.minY + 65.5))
+        bezierPath.addLineToPoint(CGPointMake(frame.minX + 53.5, frame.minY + 24.5))
+        bezierPath.addLineToPoint(CGPointMake(frame.minX + 39.5, frame.minY + 39.5))
+        bezierPath.closePath()
+        UIColor.grayColor().setFill()
+        bezierPath.fill()
+        UIColor.blackColor().setStroke()
+        bezierPath.lineWidth = 1
+        bezierPath.stroke()
         
         
-        self.hartLayer.path = hartPath.CGPath
-        self.hartLayer.lineCap = kCALineCapRound
-        self.hartLayer.opacity = 1.0
-        self.hartLayer.position = center
+//        let center = CGPoint(x: 0, y: 0)
         
         
-
+        
+        self.hartLayer.path = bezierPath.CGPath
+//        self.hartLayer.lineCap = kCALineCapRound
+//        self.hartLayer.opacity = 1.0
+//        self.hartLayer.position = center
+        
 
     }
-
+    
     
     
     //------------------------------------------------------------------------------
     //MARK: - Helper Methods
-
     
     
     
-//    override func tintColorDidChange() {
-//        super.tintColorDidChange()
-////        hartLayer.strokeColor = tintColor.CGColor
-//        self.hartLayer.strokeColor = self.strokeColor.CGColor
-//        self.hartLayer.fillColor = self.fillColor.CGColor
-//
-//    }
     
-   private func updateAnimation() {
+    override func tintColorDidChange() {
+        super.tintColorDidChange()
+        hartLayer.strokeColor = tintColor.CGColor
+    }
+    
+    private func updateAnimation() {
         if animating {
             hartLayer.hidden = false
             hartLayer.addAnimation(strokeEndAnimation, forKey: "strokeEnd")
@@ -316,56 +263,30 @@ class HartSpinnerView: UIView {
         else {
             hartLayer.removeAnimationForKey("transform.scale")
         }
-
+        
         
     }
     
-    
-    func updateShadowLayer(margin:CGFloat) {
-        if shadowLayer == nil {
-            let radiusRect = CGRectMake(margin/2,
-                                        margin/2,
-                                        self.bounds.width - margin,
-                                        self.bounds.height - margin)
-            shadowLayer = CAShapeLayer()
-            shadowLayer.path = UIBezierPath(roundedRect: radiusRect, cornerRadius: CGRectGetHeight(self.bounds) / 2.0).CGPath
-            shadowLayer.fillColor = UIColor.whiteColor().CGColor
-            layer.insertSublayer(shadowLayer, atIndex: 0)
-
-        }
-        
-    }
-
-
     
     
     
     //------------------------------------------------------------------------------
     //MARK: - View Lifecycle
-
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
         print("Our frame is:\(self.frame)")
         
-        let newFrame = CGRectMake(0, 10, self.frame.width/2, self.frame.height/2)
+        let newFrame = CGRectMake(0, 0, self.frame.width/2, self.frame.height/2)
         
         print("NEW frame is:\(newFrame)")
-
-        self.drawCanvas(frame: newFrame, scale: 1.0)
-                
         
-        if shadowLayer == nil {
-            self.updateShadowLayer(self.shadowLayerMargin)
-            layer.insertSublayer(shadowLayer, atIndex: 0)
-            //layer.insertSublayer(shadowLayer, below: nil) // also works
-        }
-
+        self.drawCanvas(frame: newFrame, scale: 0.7)
         
-
+        
+        
     }
-    
-    
-    
 }
+
