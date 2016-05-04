@@ -8,4 +8,4 @@ GitHub.com:
 0. Use 'HartSpinnerView' class to see hart spinner itself.
 
 
-![Example](gifs/hartSpinner.gif "spinner start, and hartbeat switch")
+![Example](gifs/hartSpinner2.gif "spinner start, and hartbeat switch")
