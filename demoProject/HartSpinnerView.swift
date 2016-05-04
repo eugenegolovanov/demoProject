@@ -253,6 +253,20 @@ class HartSpinnerView: UIView {
 //        hartPath.addCurveToPoint(CGPointMake(scale*(frame.minX + 69.14), scale*(frame.minY + 76.1)), controlPoint1: CGPointMake(scale*(frame.minX + 57.62), scale*(frame.minY + 105.27)), controlPoint2: CGPointMake(scale*(frame.minX + 57.62), scale*(frame.minY + 87.23)))
 
         
+        let width:CGFloat = frame.size.width
+        let height:CGFloat = frame.size.height
+        print("WIDTH:\(width)")
+        print("HEIGHT:\(height)")
+        
+        let minimumSide:CGFloat = min(width, height)
+        print("Minimum side:\(minimumSide)")
+        
+        let bindPoseEtalonSide:CGFloat = 110
+        let scale:CGFloat = bindPoseEtalonSide/minimumSide//SCALE
+        print("---+++---SCALE:\(scale)")
+        
+        
+        
         hartPath.moveToPoint(CGPointMake(frame.minX + 66.14, frame.minY + 79.1))
         hartPath.addCurveToPoint(CGPointMake(frame.minX + 107.86, frame.minY + 79.1), controlPoint1: CGPointMake(frame.minX + 76.57, frame.minY + 69.02), controlPoint2: CGPointMake(frame.minX + 97.09, frame.minY + 68.69))
         hartPath.addCurveToPoint(CGPointMake(frame.minX + 109.5, frame.minY + 80.82), controlPoint1: CGPointMake(frame.minX + 108.44, frame.minY + 79.65), controlPoint2: CGPointMake(frame.minX + 108.98, frame.minY + 80.23))
