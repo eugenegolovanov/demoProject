@@ -221,44 +221,60 @@ class HartSpinnerView: UIView {
     
     func drawCanvas(frame frame: CGRect, scale: CGFloat) {
         
+        print("FRAME:\(frame)")
 
         //// Hart Drawing
         let hartPath = UIBezierPath()
-//        hartPath.moveToPoint(CGPointMake(scale * (frame.minX + 29.14), scale * (frame.minY + 30.08)))
-//        hartPath.addCurveToPoint(CGPointMake(scale * (frame.minX + 29.14), scale * (frame.minY + 30.08)), controlPoint1: CGPointMake(scale * (frame.minX + 27.79), scale * (frame.minY + 31.22)), controlPoint2: CGPointMake(scale * (frame.minX + 28.45), scale * (frame.minY + 30.63)))
-//
-//        hartPath.addLineToPoint(CGPointMake(scale * (frame.minX + 29.49), scale * (frame.minY + 29.81)))
-//
-//        hartPath.addCurveToPoint(CGPointMake(scale * (frame.minX + 68.86), scale * (frame.minY + 31.85)), controlPoint1: CGPointMake(scale * (frame.minX + 41.07), scale * (frame.minY + 20.77)), controlPoint2: CGPointMake(scale * (frame.minX + 58.09), scale * (frame.minY + 21.44)))
-//
-//        hartPath.addCurveToPoint(CGPointMake(scale * (frame.minX + 70.5), scale * (frame.minY + 33.57)), controlPoint1: CGPointMake(scale * (frame.minX + 69.44), scale * (frame.minY + 32.4)), controlPoint2: CGPointMake(scale * (frame.minX + 69.98), scale * (frame.minY + 32.98)))
-//        
-//        hartPath.addCurveToPoint(CGPointMake(scale * (frame.minX + 72.14), scale * (frame.minY + 31.85)), controlPoint1: CGPointMake(scale * (frame.minX + 71.02), scale * (frame.minY + 32.98)), controlPoint2: CGPointMake(scale * (frame.minX + 71.56), scale * (frame.minY + 32.4)))
-//        hartPath.addCurveToPoint(CGPointMake(scale * (frame.minX + 85.94), scale * (frame.minY + 24.32)), controlPoint1: CGPointMake(scale * (frame.minX + 76.09), scale * (frame.minY + 28.03)), controlPoint2: CGPointMake(scale * (frame.minX + 80.89), scale * (frame.minY + 25.52)))
-//        hartPath.addCurveToPoint(CGPointMake(scale * (frame.minX + 113.86), scale * (frame.minY + 31.85)), controlPoint1: CGPointMake(scale * (frame.minX + 95.63), scale * (frame.minY + 22.03)), controlPoint2: CGPointMake(scale * (frame.minX + 106.29), scale * (frame.minY + 24.54)))
-//        
-//        hartPath.addCurveToPoint(CGPointMake(scale * (frame.minX + 113.86), scale * (frame.minY + 72.15)), controlPoint1: CGPointMake(scale * (frame.minX + 125.38), scale * (frame.minY + 42.98)), controlPoint2: CGPointMake(scale * (frame.minX + 125.38), scale * (frame.minY + 61.02)))
-//        hartPath.addCurveToPoint(CGPointMake(scale * (frame.minX + 113.49), scale * (frame.minY + 72.5)), controlPoint1: CGPointMake(scale * (frame.minX + 113.74), scale * (frame.minY + 72.27)), controlPoint2: CGPointMake(scale * (frame.minX + 113.62), scale * (frame.minY + 72.39)))
-//        hartPath.addCurveToPoint(CGPointMake(scale * (frame.minX + 70), scale * (frame.minY + 102)), controlPoint1: CGPointMake(scale * (frame.minX + 113.5), scale * (frame.minY + 72.5)), controlPoint2: CGPointMake(scale * (frame.minX + 88), scale * (frame.minY + 102)))
-//        hartPath.addCurveToPoint(CGPointMake(scale * (frame.minX + 27.5), scale * (frame.minY + 72.5)), controlPoint1: CGPointMake(scale * (frame.minX + 52.07), scale * (frame.minY + 102)), controlPoint2: CGPointMake(scale * (frame.minX + 27.68), scale * (frame.minY + 72.72)))
-//        hartPath.addCurveToPoint(CGPointMake(scale * (frame.minX + 27.14), scale * (frame.minY + 72.15)), controlPoint1: CGPointMake(scale * (frame.minX + 27.38), scale * (frame.minY + 72.38)), controlPoint2: CGPointMake(scale * (frame.minX + 27.26), scale * (frame.minY + 72.27)))
-//        hartPath.addCurveToPoint(CGPointMake(scale * (frame.minX + 27.14), scale * (frame.minY + 31.85)), controlPoint1: CGPointMake(scale * (frame.minX + 15.62), scale * (frame.minY + 61.02)), controlPoint2: CGPointMake(scale * (frame.minX + 15.62), scale * (frame.minY + 42.98)))
-        hartPath.moveToPoint(CGPointMake(frame.minX + 68.49, frame.minY + 69.81))
-        hartPath.addLineToPoint(CGPointMake(frame.minX + 68.49, frame.minY + 69.81))
+//        hartPath.moveToPoint(CGPointMake(frame.minX + 68.49, frame.minY + 69.81))
+//        hartPath.addLineToPoint(CGPointMake(frame.minX + 68.49, frame.minY + 69.81))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 107.86, frame.minY + 71.85), controlPoint1: CGPointMake(frame.minX + 80.07, frame.minY + 60.77), controlPoint2: CGPointMake(frame.minX + 97.09, frame.minY + 61.44))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 109.5, frame.minY + 73.57), controlPoint1: CGPointMake(frame.minX + 108.44, frame.minY + 72.4), controlPoint2: CGPointMake(frame.minX + 108.98, frame.minY + 72.98))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 111.14, frame.minY + 71.85), controlPoint1: CGPointMake(frame.minX + 110.02, frame.minY + 72.98), controlPoint2: CGPointMake(frame.minX + 110.56, frame.minY + 72.4))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 124.94, frame.minY + 64.32), controlPoint1: CGPointMake(frame.minX + 115.09, frame.minY + 68.03), controlPoint2: CGPointMake(frame.minX + 119.89, frame.minY + 65.52))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 152.86, frame.minY + 71.85), controlPoint1: CGPointMake(frame.minX + 134.63, frame.minY + 62.03), controlPoint2: CGPointMake(frame.minX + 145.29, frame.minY + 64.54))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 152.86, frame.minY + 112.15), controlPoint1: CGPointMake(frame.minX + 164.38, frame.minY + 82.98), controlPoint2: CGPointMake(frame.minX + 164.38, frame.minY + 101.02))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 152.49, frame.minY + 112.5), controlPoint1: CGPointMake(frame.minX + 152.74, frame.minY + 112.27), controlPoint2: CGPointMake(frame.minX + 152.62, frame.minY + 112.39))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 109, frame.minY + 142), controlPoint1: CGPointMake(frame.minX + 152.5, frame.minY + 112.5), controlPoint2: CGPointMake(frame.minX + 127, frame.minY + 142))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 66.5, frame.minY + 112.5), controlPoint1: CGPointMake(frame.minX + 91.07, frame.minY + 142), controlPoint2: CGPointMake(frame.minX + 66.68, frame.minY + 112.72))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 66.14, frame.minY + 112.15), controlPoint1: CGPointMake(frame.minX + 66.38, frame.minY + 112.38), controlPoint2: CGPointMake(frame.minX + 66.26, frame.minY + 112.27))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 66.14, frame.minY + 71.85), controlPoint1: CGPointMake(frame.minX + 54.62, frame.minY + 101.02), controlPoint2: CGPointMake(frame.minX + 54.62, frame.minY + 82.98))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 68.14, frame.minY + 70.08), controlPoint1: CGPointMake(frame.minX + 66.79, frame.minY + 71.22), controlPoint2: CGPointMake(frame.minX + 67.45, frame.minY + 70.63))
 
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 107.86, frame.minY + 71.85), controlPoint1: CGPointMake(frame.minX + 80.07, frame.minY + 60.77), controlPoint2: CGPointMake(frame.minX + 97.09, frame.minY + 61.44))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 109.5, frame.minY + 73.57), controlPoint1: CGPointMake(frame.minX + 108.44, frame.minY + 72.4), controlPoint2: CGPointMake(frame.minX + 108.98, frame.minY + 72.98))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 111.14, frame.minY + 71.85), controlPoint1: CGPointMake(frame.minX + 110.02, frame.minY + 72.98), controlPoint2: CGPointMake(frame.minX + 110.56, frame.minY + 72.4))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 124.94, frame.minY + 64.32), controlPoint1: CGPointMake(frame.minX + 115.09, frame.minY + 68.03), controlPoint2: CGPointMake(frame.minX + 119.89, frame.minY + 65.52))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 152.86, frame.minY + 71.85), controlPoint1: CGPointMake(frame.minX + 134.63, frame.minY + 62.03), controlPoint2: CGPointMake(frame.minX + 145.29, frame.minY + 64.54))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 152.86, frame.minY + 112.15), controlPoint1: CGPointMake(frame.minX + 164.38, frame.minY + 82.98), controlPoint2: CGPointMake(frame.minX + 164.38, frame.minY + 101.02))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 152.49, frame.minY + 112.5), controlPoint1: CGPointMake(frame.minX + 152.74, frame.minY + 112.27), controlPoint2: CGPointMake(frame.minX + 152.62, frame.minY + 112.39))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 109, frame.minY + 142), controlPoint1: CGPointMake(frame.minX + 152.5, frame.minY + 112.5), controlPoint2: CGPointMake(frame.minX + 127, frame.minY + 142))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 66.5, frame.minY + 112.5), controlPoint1: CGPointMake(frame.minX + 91.07, frame.minY + 142), controlPoint2: CGPointMake(frame.minX + 66.68, frame.minY + 112.72))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 66.14, frame.minY + 112.15), controlPoint1: CGPointMake(frame.minX + 66.38, frame.minY + 112.38), controlPoint2: CGPointMake(frame.minX + 66.26, frame.minY + 112.27))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 66.14, frame.minY + 71.85), controlPoint1: CGPointMake(frame.minX + 54.62, frame.minY + 101.02), controlPoint2: CGPointMake(frame.minX + 54.62, frame.minY + 82.98))
-        hartPath.addCurveToPoint(CGPointMake(frame.minX + 68.14, frame.minY + 70.08), controlPoint1: CGPointMake(frame.minX + 66.79, frame.minY + 71.22), controlPoint2: CGPointMake(frame.minX + 67.45, frame.minY + 70.63))
+        
+//        hartPath.moveToPoint(CGPointMake(frame.minX + 153.86, frame.minY + 78.85))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 153.86, frame.minY + 119.15), controlPoint1: CGPointMake(frame.minX + 165.38, frame.minY + 89.98), controlPoint2: CGPointMake(frame.minX + 165.38, frame.minY + 108.02))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 153.49, frame.minY + 119.5), controlPoint1: CGPointMake(frame.minX + 153.74, frame.minY + 119.27), controlPoint2: CGPointMake(frame.minX + 153.62, frame.minY + 119.39))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 110, frame.minY + 149), controlPoint1: CGPointMake(frame.minX + 153.5, frame.minY + 119.5), controlPoint2: CGPointMake(frame.minX + 128, frame.minY + 149))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 67.5, frame.minY + 119.5), controlPoint1: CGPointMake(frame.minX + 92.07, frame.minY + 149), controlPoint2: CGPointMake(frame.minX + 67.68, frame.minY + 119.72))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 67.14, frame.minY + 119.15), controlPoint1: CGPointMake(frame.minX + 67.38, frame.minY + 119.38), controlPoint2: CGPointMake(frame.minX + 67.26, frame.minY + 119.27))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 67.14, frame.minY + 78.85), controlPoint1: CGPointMake(frame.minX + 55.62, frame.minY + 108.02), controlPoint2: CGPointMake(frame.minX + 55.62, frame.minY + 89.98))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 69.14, frame.minY + 77.08), controlPoint1: CGPointMake(frame.minX + 67.79, frame.minY + 78.22), controlPoint2: CGPointMake(frame.minX + 68.45, frame.minY + 77.63))
+//        hartPath.addLineToPoint(CGPointMake(frame.minX + 69.49, frame.minY + 76.81))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 108.86, frame.minY + 78.85), controlPoint1: CGPointMake(frame.minX + 81.07, frame.minY + 67.77), controlPoint2: CGPointMake(frame.minX + 98.09, frame.minY + 68.44))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 110.5, frame.minY + 80.57), controlPoint1: CGPointMake(frame.minX + 109.44, frame.minY + 79.4), controlPoint2: CGPointMake(frame.minX + 109.98, frame.minY + 79.98))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 112.14, frame.minY + 78.85), controlPoint1: CGPointMake(frame.minX + 111.02, frame.minY + 79.98), controlPoint2: CGPointMake(frame.minX + 111.56, frame.minY + 79.4))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 125.94, frame.minY + 71.32), controlPoint1: CGPointMake(frame.minX + 116.09, frame.minY + 75.03), controlPoint2: CGPointMake(frame.minX + 120.89, frame.minY + 72.52))
+//        hartPath.addCurveToPoint(CGPointMake(frame.minX + 153.86, frame.minY + 78.85), controlPoint1: CGPointMake(frame.minX + 135.63, frame.minY + 69.03), controlPoint2: CGPointMake(frame.minX + 146.29, frame.minY + 71.54))
 
+        
+        hartPath.moveToPoint(CGPointMake(frame.minX + 71.14, frame.minY + 74.33))
+        
+        hartPath.addCurveToPoint(CGPointMake(frame.minX + 71.14, frame.minY + 74.33), controlPoint1: CGPointMake(frame.minX + 69.79, frame.minY + 75.47), controlPoint2: CGPointMake(frame.minX + 70.45, frame.minY + 74.88))
+        hartPath.addLineToPoint(CGPointMake(frame.minX + 71.49, frame.minY + 74.06))
+        hartPath.addCurveToPoint(CGPointMake(frame.minX + 110.86, frame.minY + 76.1), controlPoint1: CGPointMake(frame.minX + 83.07, frame.minY + 65.02), controlPoint2: CGPointMake(frame.minX + 100.09, frame.minY + 65.69))
+        hartPath.addCurveToPoint(CGPointMake(frame.minX + 112.5, frame.minY + 77.82), controlPoint1: CGPointMake(frame.minX + 111.44, frame.minY + 76.65), controlPoint2: CGPointMake(frame.minX + 111.98, frame.minY + 77.23))
+        hartPath.addCurveToPoint(CGPointMake(frame.minX + 114.14, frame.minY + 76.1), controlPoint1: CGPointMake(frame.minX + 113.02, frame.minY + 77.23), controlPoint2: CGPointMake(frame.minX + 113.56, frame.minY + 76.65))
+        hartPath.addCurveToPoint(CGPointMake(frame.minX + 127.94, frame.minY + 68.57), controlPoint1: CGPointMake(frame.minX + 118.09, frame.minY + 72.28), controlPoint2: CGPointMake(frame.minX + 122.89, frame.minY + 69.77))
+        hartPath.addCurveToPoint(CGPointMake(frame.minX + 155.86, frame.minY + 76.1), controlPoint1: CGPointMake(frame.minX + 137.63, frame.minY + 66.28), controlPoint2: CGPointMake(frame.minX + 148.29, frame.minY + 68.79))
+        hartPath.addCurveToPoint(CGPointMake(frame.minX + 155.86, frame.minY + 116.4), controlPoint1: CGPointMake(frame.minX + 167.38, frame.minY + 87.23), controlPoint2: CGPointMake(frame.minX + 167.38, frame.minY + 105.27))
+        hartPath.addCurveToPoint(CGPointMake(frame.minX + 113, frame.minY + 146.25), controlPoint1: CGPointMake(frame.minX + 155.74, frame.minY + 116.52), controlPoint2: CGPointMake(frame.minX + 130.06, frame.minY + 146.25))
+        hartPath.addCurveToPoint(CGPointMake(frame.minX + 69.14, frame.minY + 116.4), controlPoint1: CGPointMake(frame.minX + 96, frame.minY + 146.25), controlPoint2: CGPointMake(frame.minX + 69.26, frame.minY + 116.52))
+        hartPath.addCurveToPoint(CGPointMake(frame.minX + 69.14, frame.minY + 76.1), controlPoint1: CGPointMake(frame.minX + 57.62, frame.minY + 105.27), controlPoint2: CGPointMake(frame.minX + 57.62, frame.minY + 87.23))
+        
+        
+        
+
+        
         hartPath.closePath()
         hartBlu.setFill()
         hartPath.fill()
@@ -349,12 +365,13 @@ class HartSpinnerView: UIView {
         
         print("Our frame is:\(self.frame)")
         
-        let newFrame = CGRectMake(0, 10, self.frame.width/2, self.frame.height/2)
-        
+        let newFrame = CGRectMake(0, 0, self.frame.width/2, self.frame.height/2)
         print("NEW frame is:\(newFrame)")
-
         self.drawCanvas(frame: newFrame, scale: 1.0)
-                
+        
+//        self.drawCanvas(frame: self.frame, scale: 1.0)
+
+        
         
         if shadowLayer == nil {
             self.updateShadowLayer(self.shadowLayerMargin)
