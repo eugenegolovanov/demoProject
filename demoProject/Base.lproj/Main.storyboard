@@ -119,7 +119,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G07-QB-dpJ" customClass="SomeSpinner" customModule="demoProject" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G07-QB-dpJ" customClass="SomeSpinner" customModule="demoProject" customModuleProvider="target">
                                 <rect key="frame" x="20" y="20" width="140" height="140"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
