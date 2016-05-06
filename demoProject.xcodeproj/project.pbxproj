@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		44050C751CD7F38A00033F37 /* HartSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44050C741CD7F38A00033F37 /* HartSpinnerView.swift */; };
 		442209EF1CD97A65001EF552 /* SomeSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442209EE1CD97A65001EF552 /* SomeSpinner.swift */; };
+		443B97491CDC57BD0040173F /* StepsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B97481CDC57BD0040173F /* StepsLoader.swift */; };
 		44E0C8EF1CD7C2C300EFA315 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E0C8EE1CD7C2C300EFA315 /* AppDelegate.swift */; };
 		44E0C8F11CD7C2C300EFA315 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E0C8F01CD7C2C300EFA315 /* ViewController.swift */; };
 		44E0C8F41CD7C2C300EFA315 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44E0C8F21CD7C2C300EFA315 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		44050C741CD7F38A00033F37 /* HartSpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HartSpinnerView.swift; sourceTree = "<group>"; };
 		442209EE1CD97A65001EF552 /* SomeSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SomeSpinner.swift; sourceTree = "<group>"; };
+		443B97481CDC57BD0040173F /* StepsLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepsLoader.swift; sourceTree = "<group>"; };
 		44E0C8EB1CD7C2C300EFA315 /* demoProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demoProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44E0C8EE1CD7C2C300EFA315 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44E0C8F01CD7C2C300EFA315 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				44E0C8EE1CD7C2C300EFA315 /* AppDelegate.swift */,
 				44E0C8F01CD7C2C300EFA315 /* ViewController.swift */,
 				442209EE1CD97A65001EF552 /* SomeSpinner.swift */,
+				443B97481CDC57BD0040173F /* StepsLoader.swift */,
 				44050C741CD7F38A00033F37 /* HartSpinnerView.swift */,
 				44E0C8F21CD7C2C300EFA315 /* Main.storyboard */,
 				44E0C8F51CD7C2C300EFA315 /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44050C751CD7F38A00033F37 /* HartSpinnerView.swift in Sources */,
+				443B97491CDC57BD0040173F /* StepsLoader.swift in Sources */,
 				44E0C8F11CD7C2C300EFA315 /* ViewController.swift in Sources */,
 				44E0C8EF1CD7C2C300EFA315 /* AppDelegate.swift in Sources */,
 				442209EF1CD97A65001EF552 /* SomeSpinner.swift in Sources */,

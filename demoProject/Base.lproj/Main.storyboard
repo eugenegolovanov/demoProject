@@ -76,7 +76,7 @@
                                 <color key="textColor" red="0.59607843140000005" green="0.6588235294" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G07-QB-dpJ" customClass="SomeSpinner" customModule="demoProject" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G07-QB-dpJ" customClass="StepsLoader" customModule="demoProject" customModuleProvider="target">
                                 <rect key="frame" x="20" y="64" width="140" height="140"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -84,9 +84,6 @@
                                     <constraint firstAttribute="height" constant="140" id="a3J-Kh-Fia"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="animating" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="hartBeat" value="NO"/>
                                 </userDefinedRuntimeAttributes>
@@ -135,7 +132,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="MTm-kb-5Ao" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2df-mG-8xB"/>
                             <constraint firstItem="Ecp-Vi-tN9" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="5hd-eZ-wCA"/>
@@ -160,7 +157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1237" y="396"/>
+            <point key="canvasLocation" x="1565" y="366"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="K0B-6y-PRd">
