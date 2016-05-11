@@ -200,16 +200,25 @@ class SomeSpinner: UIView {
         
         
         //// Bezier Drawing
-        var bezierPath = UIBezierPath()
-        bezierPath.moveToPoint(CGPointMake(frame.minX + 39.5, frame.minY + 39.5))
-        bezierPath.addLineToPoint(CGPointMake(frame.minX + 21.5, frame.minY + 70.5))
-        bezierPath.addLineToPoint(CGPointMake(frame.minX + 44.5, frame.minY + 93.5))
-        bezierPath.addLineToPoint(CGPointMake(frame.minX + 100.5, frame.minY + 93.5))
-        bezierPath.addLineToPoint(CGPointMake(frame.minX + 117.5, frame.minY + 62.5))
-        bezierPath.addLineToPoint(CGPointMake(frame.minX + 90.5, frame.minY + 33.5))
-        bezierPath.addLineToPoint(CGPointMake(frame.minX + 58.5, frame.minY + 65.5))
-        bezierPath.addLineToPoint(CGPointMake(frame.minX + 53.5, frame.minY + 24.5))
-        bezierPath.addLineToPoint(CGPointMake(frame.minX + 39.5, frame.minY + 39.5))
+        let bezierPath = UIBezierPath()
+//        bezierPath.moveToPoint(CGPointMake(frame.minX + 39.5, frame.minY + 39.5))
+//        bezierPath.addLineToPoint(CGPointMake(frame.minX + 21.5, frame.minY + 70.5))
+//        bezierPath.addLineToPoint(CGPointMake(frame.minX + 44.5, frame.minY + 93.5))
+//        bezierPath.addLineToPoint(CGPointMake(frame.minX + 100.5, frame.minY + 93.5))
+//        bezierPath.addLineToPoint(CGPointMake(frame.minX + 117.5, frame.minY + 62.5))
+//        bezierPath.addLineToPoint(CGPointMake(frame.minX + 90.5, frame.minY + 33.5))
+//        bezierPath.addLineToPoint(CGPointMake(frame.minX + 58.5, frame.minY + 65.5))
+//        bezierPath.addLineToPoint(CGPointMake(frame.minX + 53.5, frame.minY + 24.5))
+//        bezierPath.addLineToPoint(CGPointMake(frame.minX + 39.5, frame.minY + 39.5))
+        bezierPath.moveToPoint(CGPointMake(scale * (frame.minX + 39.5), scale * (frame.minY + 39.5)))
+        bezierPath.addLineToPoint(CGPointMake(scale * (frame.minX + 21.5), scale * (frame.minY + 70.5)))
+        bezierPath.addLineToPoint(CGPointMake(scale * (frame.minX + 44.5), scale * (frame.minY + 93.5)))
+        bezierPath.addLineToPoint(CGPointMake(scale * (frame.minX + 100.5), scale * (frame.minY + 93.5)))
+        bezierPath.addLineToPoint(CGPointMake(scale * (frame.minX + 117.5), scale * (frame.minY + 62.5)))
+        bezierPath.addLineToPoint(CGPointMake(scale * (frame.minX + 90.5), scale * (frame.minY + 33.5)))
+        bezierPath.addLineToPoint(CGPointMake(scale * (frame.minX + 58.5), scale * (frame.minY + 65.5)))
+        bezierPath.addLineToPoint(CGPointMake(scale * (frame.minX + 53.5), scale * (frame.minY + 24.5)))
+        bezierPath.addLineToPoint(CGPointMake(scale * (frame.minX + 39.5), scale * (frame.minY + 39.5)))
         bezierPath.closePath()
         UIColor.grayColor().setFill()
         bezierPath.fill()
@@ -283,7 +292,7 @@ class SomeSpinner: UIView {
         
         print("NEW frame is:\(newFrame)")
         
-        self.drawCanvas(frame: newFrame, scale: 0.7)
+        self.drawCanvas(frame: newFrame, scale: 1.0)
         
         
         

@@ -76,7 +76,7 @@
                                 <color key="textColor" red="0.59607843140000005" green="0.6588235294" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G07-QB-dpJ" customClass="StepsLoader" customModule="demoProject" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G07-QB-dpJ" customClass="StepsLoader" customModule="demoProject" customModuleProvider="target">
                                 <rect key="frame" x="20" y="64" width="140" height="140"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
