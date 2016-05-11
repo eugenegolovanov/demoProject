@@ -288,11 +288,11 @@ class SomeSpinner: UIView {
         
         print("Our frame is:\(self.frame)")
         
-        let newFrame = CGRectMake(0, 0, self.frame.width/2, self.frame.height/2)
+        let newFrame = CGRectMake(0, 0, self.frame.width/7, self.frame.height/7)
         
         print("NEW frame is:\(newFrame)")
         
-        self.drawCanvas(frame: newFrame, scale: 1.0)
+        self.drawCanvas(frame: newFrame, scale: 0.7)
         
         
         

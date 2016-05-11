@@ -89,16 +89,16 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dTF-wp-a7d" customClass="HartSpinnerView" customModule="demoProject" customModuleProvider="target">
-                                <rect key="frame" x="190" y="190" width="220" height="220"/>
+                                <rect key="frame" x="260" y="260" width="80" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="220" id="Eha-Qg-IHn"/>
-                                    <constraint firstAttribute="height" constant="220" id="ZJL-jR-7wd"/>
+                                    <constraint firstAttribute="width" constant="80" id="Eha-Qg-IHn"/>
+                                    <constraint firstAttribute="height" constant="80" id="ZJL-jR-7wd"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                        <real key="value" value="4"/>
+                                        <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="animating" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="hartBeat" value="NO"/>
