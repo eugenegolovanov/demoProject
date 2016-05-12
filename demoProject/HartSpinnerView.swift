@@ -94,7 +94,6 @@ class HartSpinnerView: UIView {
         }
     }
 
-
     
     //MARK: Animation Properties
     
