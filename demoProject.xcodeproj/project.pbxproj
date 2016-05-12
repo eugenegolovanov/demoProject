@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		44050C751CD7F38A00033F37 /* HartSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44050C741CD7F38A00033F37 /* HartSpinnerView.swift */; };
+		4405C9601CE4EC06002CB86D /* ExtendedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4405C95F1CE4EC06002CB86D /* ExtendedVC.swift */; };
+		4405C9621CE4ECC5002CB86D /* ExtendedVC+HartSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4405C9611CE4ECC5002CB86D /* ExtendedVC+HartSpinner.swift */; };
 		442209EF1CD97A65001EF552 /* SomeSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442209EE1CD97A65001EF552 /* SomeSpinner.swift */; };
 		443B97491CDC57BD0040173F /* StepsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B97481CDC57BD0040173F /* StepsLoader.swift */; };
 		44E0C8EF1CD7C2C300EFA315 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E0C8EE1CD7C2C300EFA315 /* AppDelegate.swift */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		44050C741CD7F38A00033F37 /* HartSpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HartSpinnerView.swift; sourceTree = "<group>"; };
+		4405C95F1CE4EC06002CB86D /* ExtendedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendedVC.swift; sourceTree = "<group>"; };
+		4405C9611CE4ECC5002CB86D /* ExtendedVC+HartSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExtendedVC+HartSpinner.swift"; sourceTree = "<group>"; };
 		442209EE1CD97A65001EF552 /* SomeSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SomeSpinner.swift; sourceTree = "<group>"; };
 		443B97481CDC57BD0040173F /* StepsLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepsLoader.swift; sourceTree = "<group>"; };
 		44E0C8EB1CD7C2C300EFA315 /* demoProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demoProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4405C95E1CE4EBDB002CB86D /* ExtendedVC */ = {
+			isa = PBXGroup;
+			children = (
+				4405C95F1CE4EC06002CB86D /* ExtendedVC.swift */,
+				4405C9611CE4ECC5002CB86D /* ExtendedVC+HartSpinner.swift */,
+			);
+			name = ExtendedVC;
+			sourceTree = "<group>";
+		};
 		44E0C8E21CD7C2C300EFA315 = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +73,7 @@
 		44E0C8ED1CD7C2C300EFA315 /* demoProject */ = {
 			isa = PBXGroup;
 			children = (
+				4405C95E1CE4EBDB002CB86D /* ExtendedVC */,
 				44E0C8EE1CD7C2C300EFA315 /* AppDelegate.swift */,
 				44E0C8F01CD7C2C300EFA315 /* ViewController.swift */,
 				442209EE1CD97A65001EF552 /* SomeSpinner.swift */,
@@ -147,6 +161,8 @@
 				44050C751CD7F38A00033F37 /* HartSpinnerView.swift in Sources */,
 				443B97491CDC57BD0040173F /* StepsLoader.swift in Sources */,
 				44E0C8F11CD7C2C300EFA315 /* ViewController.swift in Sources */,
+				4405C9601CE4EC06002CB86D /* ExtendedVC.swift in Sources */,
+				4405C9621CE4ECC5002CB86D /* ExtendedVC+HartSpinner.swift in Sources */,
 				44E0C8EF1CD7C2C300EFA315 /* AppDelegate.swift in Sources */,
 				442209EF1CD97A65001EF552 /* SomeSpinner.swift in Sources */,
 			);

@@ -29,20 +29,20 @@ class HartSpinnerView: UIView {
     
     //MARK: Inspectable Properties
     
-    @IBInspectable var lineWidth: CGFloat = 4 {
+    @IBInspectable var lineWidth: CGFloat = 2 {
         didSet {
             hartLayer.lineWidth = lineWidth
             setNeedsLayout()
         }
     }
     
-    @IBInspectable var strokeColor: UIColor = UIColor.yellowColor() {
+    @IBInspectable var strokeColor: UIColor = UIColor(red: 0.231, green: 0.741, blue: 0.792, alpha: 1.000) {
         didSet {
             hartLayer.strokeColor = strokeColor.CGColor
         }
     }
     
-    @IBInspectable var fillColor: UIColor = UIColor.greenColor() {
+    @IBInspectable var fillColor: UIColor = UIColor.clearColor() {
         didSet {
             hartLayer.fillColor = fillColor.CGColor
         }
@@ -56,7 +56,7 @@ class HartSpinnerView: UIView {
         }
     }
     
-    @IBInspectable var hartBeat: Bool = true {
+    @IBInspectable var hartBeat: Bool = false {
         didSet {
             updateAnimation()
         }
@@ -64,31 +64,31 @@ class HartSpinnerView: UIView {
     
 
     //Shadow
-    @IBInspectable var shadowColor: UIColor = UIColor.blackColor() {
+    @IBInspectable var shadowColor: UIColor = UIColor.lightGrayColor() {
         didSet {
             layer.shadowColor = shadowColor.CGColor
         }
     }
     
-    @IBInspectable var shadowRadius: CGFloat = 0 {
+    @IBInspectable var shadowRadius: CGFloat = 10 {
         didSet {
             layer.shadowRadius = shadowRadius
         }
     }
 
-    @IBInspectable var shadowOpacity: Float = 0 {
+    @IBInspectable var shadowOpacity: Float = 1 {
         didSet {
             layer.shadowOpacity = shadowOpacity
         }
     }
     
-    @IBInspectable var shadowOffset: CGSize = CGSize.zero {
+    @IBInspectable var shadowOffset: CGSize = CGSizeMake(0, 0) {
         didSet {
             layer.shadowOffset = shadowOffset
         }
     }
     
-    @IBInspectable var shadowLayerMargin: CGFloat = 10 {
+    @IBInspectable var shadowLayerMargin: CGFloat = 20 {
         didSet {
             self.updateShadowLayer(shadowLayerMargin)
         }
@@ -196,30 +196,23 @@ class HartSpinnerView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        //Corner Radius
-//        self.layer.cornerRadius = CGRectGetHeight(self.bounds) / 2.0
-//        self.layer.masksToBounds = true
-
         setup()
     }
 
     
     func setup() {
+        self.backgroundColor = UIColor.clearColor()
+        self.tintColor = UIColor.clearColor()
         hartLayer.lineWidth = lineWidth
-//        self.hartLayer.strokeColor = hartBlueberry.CGColor
-//        self.hartLayer.fillColor = UIColor.clearColor().CGColor
-        
         self.hartLayer.strokeColor = self.strokeColor.CGColor
         self.hartLayer.fillColor = self.fillColor.CGColor
-
         layer.addSublayer(hartLayer)
-//        tintColorDidChange()
     }
     
     
     
     
-    func drawCanvas(frame frame: CGRect) {
+    private func drawCanvas(frame frame: CGRect) {
         
         print("FRAME:\(frame)")
 
@@ -261,8 +254,6 @@ class HartSpinnerView: UIView {
         
         let center = CGPoint(x: 0, y: 0)
 
-
-        
         
         self.hartLayer.path = hartPath.CGPath
         self.hartLayer.lineCap = kCALineCapRound
@@ -315,7 +306,7 @@ class HartSpinnerView: UIView {
     }
     
     
-    func updateShadowLayer(margin:CGFloat) {
+    private func updateShadowLayer(margin:CGFloat) {
         if shadowLayer == nil {
             let radiusRect = CGRectMake(margin/2,
                                         margin/2,
@@ -324,6 +315,14 @@ class HartSpinnerView: UIView {
             shadowLayer = CAShapeLayer()
             shadowLayer.path = UIBezierPath(roundedRect: radiusRect, cornerRadius: CGRectGetHeight(self.bounds) / 2.0).CGPath
             shadowLayer.fillColor = UIColor.whiteColor().CGColor
+            shadowLayer.masksToBounds = false
+
+            layer.shadowColor = shadowColor.CGColor
+            layer.shadowRadius = shadowRadius
+            layer.shadowOpacity = shadowOpacity
+            layer.shadowOffset = shadowOffset
+
+            
             layer.insertSublayer(shadowLayer, atIndex: 0)
 
         }
@@ -332,7 +331,7 @@ class HartSpinnerView: UIView {
 
 
     
-    
+
     
     //------------------------------------------------------------------------------
     //MARK: - View Lifecycle
@@ -346,15 +345,10 @@ class HartSpinnerView: UIView {
         print("NEW frame is:\(newFrame)")
         self.drawCanvas(frame: newFrame)
         
-//        self.drawCanvas(frame: self.frame, scale: 1.0)
-
-        
-        
         if shadowLayer == nil {
             self.updateShadowLayer(self.shadowLayerMargin)
-            layer.insertSublayer(shadowLayer, atIndex: 0)
-            //layer.insertSublayer(shadowLayer, below: nil) // also works
         }
+        
 
         
 
