@@ -118,10 +118,13 @@ class StepsLoader: UIView {
         backgroundCircleLayer.lineCap = kCALineCapRound
         backgroundCircleLayer.position = center
         backgroundCircleLayer.path = path.CGPath
-
+        
         circleLayer.lineCap = kCALineCapRound
         circleLayer.position = center
         circleLayer.path = path.CGPath
         circleLayer.strokeEnd = 0.0
+
+        
+
     }
 }

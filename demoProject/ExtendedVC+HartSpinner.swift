@@ -12,7 +12,11 @@ extension ExtendedVC {
     
     
     /**
+     
      Function creates 'HartSpinnerView' and adding to the ViewControllers 'self.view'
+     
+     ![Xcode icon](http://devimages.apple.com.edgekey.net/assets/elements/icons/128x128/xcode.png "Some hover text")
+     
      */
     func hartSpinnerStartAnimating() {
         

@@ -65,6 +65,7 @@ class HartSpinnerView: UIView {
 
     //Shadow
     @IBInspectable var shadowColor: UIColor = UIColor.lightGrayColor() {
+
         didSet {
             layer.shadowColor = shadowColor.CGColor
         }
@@ -205,6 +206,8 @@ class HartSpinnerView: UIView {
         hartLayer.lineWidth = lineWidth
         self.hartLayer.strokeColor = self.strokeColor.CGColor
         self.hartLayer.fillColor = self.fillColor.CGColor
+//        hartLayer.lineDashPattern = [1, 3]// [dashLength, dashSpacing]
+
         layer.addSublayer(hartLayer)
     }
     
@@ -315,13 +318,11 @@ class HartSpinnerView: UIView {
             shadowLayer.path = UIBezierPath(roundedRect: radiusRect, cornerRadius: CGRectGetHeight(self.bounds) / 2.0).CGPath
             shadowLayer.fillColor = UIColor.whiteColor().CGColor
             shadowLayer.masksToBounds = false
-
+            
             layer.shadowColor = shadowColor.CGColor
             layer.shadowRadius = shadowRadius
             layer.shadowOpacity = shadowOpacity
             layer.shadowOffset = shadowOffset
-
-            
             layer.insertSublayer(shadowLayer, atIndex: 0)
 
         }
