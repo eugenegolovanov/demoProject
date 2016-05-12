@@ -10,7 +10,11 @@ import UIKit
 
 extension ExtendedVC {
     
-    func addHartSpinner() {
+    
+    /**
+     Function creates 'HartSpinnerView' and adding to the ViewControllers 'self.view'
+     */
+    func hartSpinnerStartAnimating() {
         let spinnerFrame = CGRectMake(0, 0, 80, 80)
         let spinner = HartSpinnerView(frame: spinnerFrame)
         spinner.animating = true
@@ -24,5 +28,22 @@ extension ExtendedVC {
         let heightConstraint = spinner.heightAnchor.constraintEqualToAnchor(nil, constant: spinnerFrame.size.height)
         NSLayoutConstraint.activateConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
     }
+    
+    
+    
+    /**
+     Function removes any 'HartSpinnerView' from 'self.view'
+     */
+    func hartSpinnerStopAnimating() {
+        for view in self.view.subviews {
+            if view.isKindOfClass(HartSpinnerView) {
+                view.removeFromSuperview()
+            }
+        }
+    }
+    
+    
+    
+    
     
 }

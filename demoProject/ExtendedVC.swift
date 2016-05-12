@@ -12,10 +12,18 @@ class ExtendedVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.addHartSpinner()
         
     }
 
 
+    @IBAction func startAnimationAction(sender: UIButton) {
+        self.hartSpinnerStartAnimating()
+    }
+    
+    @IBAction func stopAnimationAction(sender: UIButton) {
+        self.hartSpinnerStopAnimating()
+    }
+    
+    
+    
 }
