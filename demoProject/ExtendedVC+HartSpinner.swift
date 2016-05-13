@@ -22,21 +22,21 @@ extension ExtendedVC {
      self.hartSpinnerStopAnimating()
 
      */
-    func hartSpinnerStartAnimating() {
+    func hartSpinnerStartAnimating(mainView mainView: UIView) {
         
         //Reset
-        self.hartSpinnerStopAnimating()
+        self.hartSpinnerStopAnimating(mainView: mainView)
         
         let spinnerFrame = CGRectMake(0, 0, 80, 80)
         let spinner = HartSpinnerView(frame: spinnerFrame)
         spinner.animating = true
         spinner.hartBeat = false
         spinner.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(spinner)
+        mainView.addSubview(spinner)
         
         //New Style Constraints
-//        let horizontalConstraint = spinner.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor)
-//        let verticalConstraint = spinner.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor)
+//        let horizontalConstraint = spinner.centerXAnchor.constraintEqualToAnchor(mainView.centerXAnchor)
+//        let verticalConstraint = spinner.centerYAnchor.constraintEqualToAnchor(mainView.centerYAnchor)
 //        let widthConstraint = spinner.widthAnchor.constraintEqualToAnchor(nil, constant: spinnerFrame.size.width)
 //        let heightConstraint = spinner.heightAnchor.constraintEqualToAnchor(nil, constant: spinnerFrame.size.height)
 //        NSLayoutConstraint.activateConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
@@ -47,13 +47,10 @@ extension ExtendedVC {
         spinner.addConstraint(spinnerWidthConstraint)
         let spinnerHeightConstraint = NSLayoutConstraint(item: spinner, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: spinnerFrame.size.height)
         spinner.addConstraint(spinnerHeightConstraint)
-        let spinnerHorizontalConstraint = NSLayoutConstraint(item: spinner, attribute: NSLayoutAttribute.CenterX , relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
-        self.view.addConstraint(spinnerHorizontalConstraint)
-        let spinnerVerticalConstraint = NSLayoutConstraint(item: spinner, attribute: NSLayoutAttribute.CenterY , relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
-        self.view.addConstraint(spinnerVerticalConstraint)
-
-
-        
+        let spinnerHorizontalConstraint = NSLayoutConstraint(item: spinner, attribute: NSLayoutAttribute.CenterX , relatedBy: NSLayoutRelation.Equal, toItem: mainView, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
+        mainView.addConstraint(spinnerHorizontalConstraint)
+        let spinnerVerticalConstraint = NSLayoutConstraint(item: spinner, attribute: NSLayoutAttribute.CenterY , relatedBy: NSLayoutRelation.Equal, toItem: mainView, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
+        mainView.addConstraint(spinnerVerticalConstraint)
 
     }
     
@@ -65,8 +62,8 @@ extension ExtendedVC {
      ```
      self.hartSpinnerStopAnimating()
      */
-    func hartSpinnerStopAnimating() {
-        for view in self.view.subviews {
+    func hartSpinnerStopAnimating(mainView mainView:UIView) {
+        for view in mainView.subviews {
             if view.isKindOfClass(HartSpinnerView) {
                 view.removeFromSuperview()
             }

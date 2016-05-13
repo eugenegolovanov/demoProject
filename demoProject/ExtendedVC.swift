@@ -17,11 +17,11 @@ class ExtendedVC: UIViewController {
 
 
     @IBAction func startAnimationAction(sender: UIButton) {
-        self.hartSpinnerStartAnimating()
+        self.hartSpinnerStartAnimating(mainView: self.view)
     }
     
     @IBAction func stopAnimationAction(sender: UIButton) {
-        self.hartSpinnerStopAnimating()
+        self.hartSpinnerStopAnimating(mainView: self.view)
     }
     
     
