@@ -25,7 +25,7 @@
 		4405C9611CE4ECC5002CB86D /* ExtendedVC+HartSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExtendedVC+HartSpinner.swift"; sourceTree = "<group>"; };
 		442209EE1CD97A65001EF552 /* SomeSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SomeSpinner.swift; sourceTree = "<group>"; };
 		443B97481CDC57BD0040173F /* StepsLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepsLoader.swift; sourceTree = "<group>"; };
-		44E0C8EB1CD7C2C300EFA315 /* demoProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demoProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		44E0C8EB1CD7C2C300EFA315 /* spinners.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spinners.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44E0C8EE1CD7C2C300EFA315 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44E0C8F01CD7C2C300EFA315 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		44E0C8F31CD7C2C300EFA315 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 		44E0C8E21CD7C2C300EFA315 = {
 			isa = PBXGroup;
 			children = (
-				44E0C8ED1CD7C2C300EFA315 /* demoProject */,
+				44E0C8ED1CD7C2C300EFA315 /* spinners */,
 				44E0C8EC1CD7C2C300EFA315 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,12 +65,12 @@
 		44E0C8EC1CD7C2C300EFA315 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				44E0C8EB1CD7C2C300EFA315 /* demoProject.app */,
+				44E0C8EB1CD7C2C300EFA315 /* spinners.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		44E0C8ED1CD7C2C300EFA315 /* demoProject */ = {
+		44E0C8ED1CD7C2C300EFA315 /* spinners */ = {
 			isa = PBXGroup;
 			children = (
 				4405C95E1CE4EBDB002CB86D /* ExtendedVC */,
@@ -84,15 +84,16 @@
 				44E0C8F71CD7C2C300EFA315 /* LaunchScreen.storyboard */,
 				44E0C8FA1CD7C2C300EFA315 /* Info.plist */,
 			);
+			name = spinners;
 			path = demoProject;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		44E0C8EA1CD7C2C300EFA315 /* demoProject */ = {
+		44E0C8EA1CD7C2C300EFA315 /* spinners */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 44E0C8FD1CD7C2C300EFA315 /* Build configuration list for PBXNativeTarget "demoProject" */;
+			buildConfigurationList = 44E0C8FD1CD7C2C300EFA315 /* Build configuration list for PBXNativeTarget "spinners" */;
 			buildPhases = (
 				44E0C8E71CD7C2C300EFA315 /* Sources */,
 				44E0C8E81CD7C2C300EFA315 /* Frameworks */,
@@ -102,9 +103,9 @@
 			);
 			dependencies = (
 			);
-			name = demoProject;
+			name = spinners;
 			productName = demoProject;
-			productReference = 44E0C8EB1CD7C2C300EFA315 /* demoProject.app */;
+			productReference = 44E0C8EB1CD7C2C300EFA315 /* spinners.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -122,7 +123,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 44E0C8E61CD7C2C300EFA315 /* Build configuration list for PBXProject "demoProject" */;
+			buildConfigurationList = 44E0C8E61CD7C2C300EFA315 /* Build configuration list for PBXProject "spinners" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -135,7 +136,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				44E0C8EA1CD7C2C300EFA315 /* demoProject */,
+				44E0C8EA1CD7C2C300EFA315 /* spinners */,
 			);
 		};
 /* End PBXProject section */
@@ -281,8 +282,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = demoProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hart.demoProject;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = spinners;
+				PRODUCT_NAME = spinners;
 			};
 			name = Debug;
 		};
@@ -292,15 +293,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = demoProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hart.demoProject;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = spinners;
+				PRODUCT_NAME = spinners;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		44E0C8E61CD7C2C300EFA315 /* Build configuration list for PBXProject "demoProject" */ = {
+		44E0C8E61CD7C2C300EFA315 /* Build configuration list for PBXProject "spinners" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				44E0C8FB1CD7C2C300EFA315 /* Debug */,
@@ -309,7 +310,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		44E0C8FD1CD7C2C300EFA315 /* Build configuration list for PBXNativeTarget "demoProject" */ = {
+		44E0C8FD1CD7C2C300EFA315 /* Build configuration list for PBXNativeTarget "spinners" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				44E0C8FE1CD7C2C300EFA315 /* Debug */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sxb-4r-oUx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dm8-jo-Nbz">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="demoProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="spinners" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -76,19 +76,7 @@
                                 <color key="textColor" red="0.59607843140000005" green="0.6588235294" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G07-QB-dpJ" customClass="StepsLoader" customModule="demoProject" customModuleProvider="target">
-                                <rect key="frame" x="20" y="64" width="140" height="140"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="LuW-dr-YZt"/>
-                                    <constraint firstAttribute="height" constant="140" id="a3J-Kh-Fia"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="animating" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hartBeat" value="NO"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dTF-wp-a7d" customClass="HartSpinnerView" customModule="demoProject" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dTF-wp-a7d" customClass="HartSpinnerView" customModule="spinners" customModuleProvider="target">
                                 <rect key="frame" x="260" y="260" width="80" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -131,6 +119,30 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvo-6X-2pN" customClass="SomeSpinner" customModule="spinners" customModuleProvider="target">
+                                <rect key="frame" x="440" y="114" width="140" height="140"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="8eg-wW-bl4"/>
+                                    <constraint firstAttribute="width" constant="140" id="Dbl-Ed-XTa"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="animating" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hartBeat" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G07-QB-dpJ" customClass="StepsLoader" customModule="spinners" customModuleProvider="target">
+                                <rect key="frame" x="20" y="114" width="140" height="140"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="6iX-J1-6nq"/>
+                                    <constraint firstAttribute="height" constant="140" id="dyc-XH-lXo"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="animating" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hartBeat" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -139,15 +151,17 @@
                             <constraint firstItem="dTF-wp-a7d" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7R1-hz-G5F"/>
                             <constraint firstItem="2NZ-Qw-9Tx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9nd-lZ-sHY"/>
                             <constraint firstItem="jBZ-sc-k0g" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CVL-9l-022"/>
-                            <constraint firstItem="G07-QB-dpJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="IgN-uO-sRR"/>
+                            <constraint firstItem="G07-QB-dpJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="H6z-w1-QK9"/>
+                            <constraint firstItem="Hvo-6X-2pN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="WUP-vZ-nTh"/>
                             <constraint firstItem="2NZ-Qw-9Tx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="WXt-BZ-A3y"/>
+                            <constraint firstItem="G07-QB-dpJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="bBf-BK-4BK"/>
                             <constraint firstItem="ccZ-X9-F82" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bCN-d9-8ev"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MTm-kb-5Ao" secondAttribute="bottom" constant="8" id="dVC-nV-rIv"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ecp-Vi-tN9" secondAttribute="bottom" constant="20" id="ddG-LA-blJ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ccZ-X9-F82" secondAttribute="bottom" constant="20" id="eeE-sP-Mdh"/>
-                            <constraint firstItem="G07-QB-dpJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="gFg-Oe-71B"/>
                             <constraint firstItem="dTF-wp-a7d" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gPr-eX-Fkv"/>
                             <constraint firstItem="MTm-kb-5Ao" firstAttribute="top" secondItem="jBZ-sc-k0g" secondAttribute="bottom" constant="8" id="u6D-A7-vrb"/>
+                            <constraint firstItem="Hvo-6X-2pN" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="vI3-PM-Roc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Wgv-c5-ihy"/>
@@ -162,7 +176,7 @@
         <!--ExtendedVC-->
         <scene sceneID="uyZ-au-RhM">
             <objects>
-                <viewController id="ddg-Jt-IyA" customClass="ExtendedVC" customModule="demoProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ddg-Jt-IyA" customClass="ExtendedVC" customModule="spinners" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5gX-2v-flr"/>
                         <viewControllerLayoutGuide type="bottom" id="7Va-Wc-rVk"/>
