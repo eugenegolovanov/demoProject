@@ -149,12 +149,6 @@ class HartSpinnerView: UIView {
         return group
     }()
 
-    
-    
-    
-    
-    
-    
     private let hartBeatAnimation: CAAnimation = {
         
         let scaleAnimate:CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
@@ -175,13 +169,6 @@ class HartSpinnerView: UIView {
         return group
     }()
 
-    
-    
-
-    
-    
-    
-    
     //------------------------------------------------------------------------------
     //MARK: - init Methods
 
@@ -210,10 +197,7 @@ class HartSpinnerView: UIView {
 
         layer.addSublayer(hartLayer)
     }
-    
-    
-    
-    
+
     private func drawCanvas(frame frame: CGRect) {
         
         print("FRAME:\(frame)")
@@ -328,10 +312,6 @@ class HartSpinnerView: UIView {
         }
         
     }
-
-
-    
-
     
     //------------------------------------------------------------------------------
     //MARK: - View Lifecycle
@@ -349,9 +329,6 @@ class HartSpinnerView: UIView {
             self.updateShadowLayer(self.shadowLayerMargin)
         }
         
-
-        
-
     }
     
     
