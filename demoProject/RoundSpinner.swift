@@ -13,9 +13,18 @@ class RoundSpinner: UIView {
     let circleLayer = CAShapeLayer()
     let backgroundCircleLayer = CAShapeLayer()
     
+    
+    var duration:CFTimeInterval = 0.75 {
+        didSet {
+            circleLayer.removeAnimationForKey("transform.rotation.z")
+            rotateAnimation.duration = self.duration
+            circleLayer.addAnimation(rotateAnimation, forKey: "transform.rotation.z")
+        }
+    }
+
     private let rotateAnimation: CAAnimation = {
         let rotationAnim = CABasicAnimation(keyPath: "transform.rotation.z")
-        rotationAnim.duration = 2.0
+        rotationAnim.duration = 1.0
         rotationAnim.repeatCount = Float.infinity
         rotationAnim.fromValue = 0.0
         rotationAnim.toValue = Float(M_PI * 2.0)
@@ -24,6 +33,8 @@ class RoundSpinner: UIView {
         return rotationAnim
     }()
     
+    
+    
     @IBInspectable var lineWidth: CGFloat = 4 {
         didSet {
             circleLayer.lineWidth = lineWidth
@@ -31,19 +42,28 @@ class RoundSpinner: UIView {
             setNeedsLayout()
         }
     }
-    
-    @IBInspectable var animating: Bool = true {
+        
+    @IBInspectable var strokeColor: UIColor = UIColor(red: 59/255, green: 189/255, blue: 202/255, alpha: 1.0) {
         didSet {
-            updateAnimation()
+            circleLayer.strokeColor = strokeColor.CGColor
         }
     }
     
-    func updateAnimation() {
-        if animating {
-            circleLayer.addAnimation(rotateAnimation, forKey: "transform.rotation.z")
+    @IBInspectable var trailColor: UIColor = UIColor(red: 240/255, green: 243/255, blue: 245/255, alpha: 1.0) {
+        didSet {
+            backgroundCircleLayer.strokeColor = trailColor.CGColor
         }
-        else {
-            circleLayer.removeAnimationForKey("transform.rotation.z")
+    }
+    
+    @IBInspectable var bgColor: UIColor = UIColor.clearColor() {
+        didSet {
+            self.backgroundColor = bgColor
+        }
+    }
+
+    var trailAlpha: Float = 1.0 {
+        didSet {
+            backgroundCircleLayer.opacity = trailAlpha
         }
     }
     
@@ -74,6 +94,10 @@ class RoundSpinner: UIView {
         circleLayer.strokeColor = UIColor(red: 59/255, green: 189/255, blue: 202/255, alpha: 1.0).CGColor
 
         layer.addSublayer(circleLayer)
+        
+        rotateAnimation.duration = self.duration
+        circleLayer.addAnimation(rotateAnimation, forKey: "transform.rotation.z")
+        
         tintColorDidChange()
     }
     
