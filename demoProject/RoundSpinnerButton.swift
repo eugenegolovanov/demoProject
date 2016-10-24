@@ -40,6 +40,7 @@ public class RoundSpinnerButton: UIButton {
         self.spinner.trailColor = UIColor.whiteColor()
         self.spinner.trailAlpha = 0.2
         self.spinner.lineWidth = 2.0
+        self.spinner.shadowLayer.opacity = 0
         self.spinner.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(spinner)
         

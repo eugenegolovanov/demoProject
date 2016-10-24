@@ -10,10 +10,18 @@ import UIKit
 
 @IBDesignable
 class RoundSpinner: UIView {
+    
+    //---------------------------------------------------------------------------------------------------
+    // MARK: - Properties
+    
     let circleLayer = CAShapeLayer()
     let backgroundCircleLayer = CAShapeLayer()
     
+    //Shadow
+    var shadowLayer = CAShapeLayer()
     
+    
+    //Animation
     var duration:CFTimeInterval = 0.75 {
         didSet {
             circleLayer.removeAnimationForKey("transform.rotation.z")
@@ -21,7 +29,7 @@ class RoundSpinner: UIView {
             circleLayer.addAnimation(rotateAnimation, forKey: "transform.rotation.z")
         }
     }
-
+    
     private let rotateAnimation: CAAnimation = {
         let rotationAnim = CABasicAnimation(keyPath: "transform.rotation.z")
         rotationAnim.duration = 1.0
@@ -42,7 +50,7 @@ class RoundSpinner: UIView {
             setNeedsLayout()
         }
     }
-        
+    
     @IBInspectable var strokeColor: UIColor = UIColor(red: 59/255, green: 189/255, blue: 202/255, alpha: 1.0) {
         didSet {
             circleLayer.strokeColor = strokeColor.CGColor
@@ -60,12 +68,48 @@ class RoundSpinner: UIView {
             self.backgroundColor = bgColor
         }
     }
-
+    
     var trailAlpha: Float = 1.0 {
         didSet {
             backgroundCircleLayer.opacity = trailAlpha
         }
     }
+    
+    //Shadow
+    @IBInspectable var shadowColor: UIColor = UIColor.lightGrayColor() {
+        
+        didSet {
+            layer.shadowColor = shadowColor.CGColor
+        }
+    }
+    
+    @IBInspectable var shadowRadius: CGFloat = 10 {
+        didSet {
+            layer.shadowRadius = shadowRadius
+        }
+    }
+    
+    @IBInspectable var shadowOpacity: Float = 1 {
+        didSet {
+            layer.shadowOpacity = shadowOpacity
+        }
+    }
+    
+    @IBInspectable var shadowOffset: CGSize = CGSizeMake(0, 0) {
+        didSet {
+            layer.shadowOffset = shadowOffset
+        }
+    }
+    
+    @IBInspectable var shadowLayerMargin: CGFloat = 0 {
+        didSet {
+            self.updateShadowLayer(shadowLayerMargin)
+        }
+    }
+    
+    
+    //---------------------------------------------------------------------------------------------------
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -81,18 +125,22 @@ class RoundSpinner: UIView {
         setup()
     }
     
-    func setup() {
+    
+    //---------------------------------------------------------------------------------------------------
+    // MARK: - Setup
+    
+    private func setup() {
         
         backgroundCircleLayer.lineWidth = lineWidth
         backgroundCircleLayer.fillColor = UIColor.clearColor().CGColor
         backgroundCircleLayer.strokeColor = UIColor(red: 240/255, green: 243/255, blue: 245/255, alpha: 1.0).CGColor
-
+        
         layer.addSublayer(backgroundCircleLayer)
         
         circleLayer.lineWidth = lineWidth
         circleLayer.fillColor = UIColor.clearColor().CGColor
         circleLayer.strokeColor = UIColor(red: 59/255, green: 189/255, blue: 202/255, alpha: 1.0).CGColor
-
+        
         layer.addSublayer(circleLayer)
         
         rotateAnimation.duration = self.duration
@@ -100,6 +148,32 @@ class RoundSpinner: UIView {
         
         tintColorDidChange()
     }
+    
+    private func updateShadowLayer(margin:CGFloat) {
+        //        if shadowLayer == nil {
+        let radiusRect = CGRectMake(margin/2,
+                                    margin/2,
+                                    self.bounds.width - margin,
+                                    self.bounds.height - margin)
+        //            shadowLayer = CAShapeLayer()
+        //            shadowLayer.path = UIBezierPath(roundedRect: radiusRect, cornerRadius: CGRectGetHeight(self.bounds) / 2.0).CGPath
+        shadowLayer.path = UIBezierPath(roundedRect: radiusRect, cornerRadius: CGRectGetHeight(self.bounds)).CGPath
+        
+        shadowLayer.fillColor = UIColor.whiteColor().CGColor
+        shadowLayer.masksToBounds = false
+        
+        layer.shadowColor = shadowColor.CGColor
+        layer.shadowRadius = shadowRadius
+        layer.shadowOpacity = shadowOpacity
+        layer.shadowOffset = shadowOffset
+        layer.insertSublayer(shadowLayer, atIndex: 0)
+        
+        //        }
+        
+    }
+    
+    //---------------------------------------------------------------------------------------------------
+    //MARK: - View Lifecycle
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -109,7 +183,7 @@ class RoundSpinner: UIView {
         
         let startAngle = CGFloat(-M_PI_2)
         let endAngle = startAngle + CGFloat(M_PI * 2)
-
+        
         let path = UIBezierPath(arcCenter: CGPointZero, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         
         backgroundCircleLayer.lineCap = kCALineCapSquare
@@ -120,5 +194,11 @@ class RoundSpinner: UIView {
         circleLayer.position = center
         circleLayer.path = path.CGPath
         circleLayer.strokeEnd = 0.25
+        
+        //        if shadowLayer == nil {
+        self.updateShadowLayer(self.shadowLayerMargin)
+        //        }
+        
     }
+    
 }
