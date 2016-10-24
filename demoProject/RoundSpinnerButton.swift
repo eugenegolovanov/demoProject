@@ -40,7 +40,18 @@ public class RoundSpinnerButton: UIButton {
         self.spinner.trailColor = UIColor.whiteColor()
         self.spinner.trailAlpha = 0.2
         self.spinner.lineWidth = 2.0
+        self.spinner.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(spinner)
+        
+        let spinnerWidthConstraint = NSLayoutConstraint(item: self.spinner, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: spinnerSize)
+        self.spinner.addConstraint(spinnerWidthConstraint)
+        let spinnerHeightConstraint = NSLayoutConstraint(item: self.spinner, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: spinnerSize)
+        self.spinner.addConstraint(spinnerHeightConstraint)
+        let spinnerHorizontalConstraint = NSLayoutConstraint(item: self.spinner, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
+        self.addConstraint(spinnerHorizontalConstraint)
+        let spinnerVerticalConstraint = NSLayoutConstraint(item: self.spinner, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
+        self.addConstraint(spinnerVerticalConstraint)
+
         
         self.titleLabel?.alpha = CGFloat(!self.pressSpin)
         self.spinner.alpha = CGFloat(self.pressSpin)
